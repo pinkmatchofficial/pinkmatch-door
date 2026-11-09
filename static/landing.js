@@ -95,13 +95,11 @@
     const text = `${SRC.query || ""} ${SRC.kw || ""}`.replace(/\s+/g, "");
     if (!text) return null;
     const key = /번호키/.test(text) && !/도어락/.test(text) ? "번호키" : "도어락";
-    if (/방문|욕실문|욕실손잡이|화장실문/.test(text)) return [/교체/.test(text) ? "손잡이 교체," : /고장/.test(text) ? "손잡이 고장," : "방문 잠김,", "방문·욕실문"];
-    if (/개문|잠금해제|문열기/.test(text)) return [`${key} 개문,`, "문이 안 열려요"];
-    if (/안열|잠김|잠겼|먹통|비밀번호|전원|안켜|방전|터치|경고음|작동안/.test(text)) return [`${key} 안열림,`, "문이 안 열려요"];
-    if (/교체/.test(text)) return [`${key} 교체,`, "설치·교체"];
-    if (/설치/.test(text)) return [`${key} 설치,`, "설치·교체"];
-    if (/수리/.test(text)) return [`${key} 수리,`, "도어락 고장·수리"];
-    if (/고장|AS|긴급|출동|출장/.test(text)) return [`${key} 고장,`, "도어락 고장·수리"];
+    if (/방문|욕실문|욕실손잡이|화장실문/.test(text)) return [/교체|설치/.test(text) ? "방문 손잡이 설치, 교체" : "방문 잠김, 개문", "방문·욕실문"];
+    if (/개문|잠금해제|문열기/.test(text)) return [`${key} 개문, 수리`, "문이 안 열려요"];
+    if (/안열|잠김|잠겼|먹통|비밀번호|전원|안켜|방전|터치|경고음|작동안/.test(text)) return [`${key} 고장, 수리`, "문이 안 열려요"];
+    if (/교체|설치/.test(text)) return [`${key} 설치, 교체`, "설치·교체"];
+    if (/수리|고장|AS|긴급|출동|출장/.test(text)) return [`${key} 고장, 수리`, "도어락 고장·수리"];
     return null;
   })();
   // 광역시 구·동 페이지인데 검색어에 이 지역 이름이 없으면(지역 없는 검색 · 도시 전체 노출) 제목 지역을 도시 이름으로

@@ -360,3 +360,5 @@ body.night .mcard .mt b{font-size:24px}
 /* 첫 화면 배경: 실제 도어락 시공 사진 */
 .mcard:not(.lk){background:linear-gradient(90deg,rgba(20,12,16,.78) 0%,rgba(20,12,16,.55) 55%,rgba(20,12,16,.15) 100%),url(/static/photos/bg_door.jpg) 20% 45%/cover no-repeat}
 .faq p .warn{color:#d93025;font-weight:600}
+.mcard .hb2{display:block;margin-top:8px;color:#fff;font-size:17px;font-weight:800;letter-spacing:-.3px;text-shadow:0 2px 8px rgba(0,0,0,.45)}
+.mcard .hb2 #hbCat{color:#FFE14D}
