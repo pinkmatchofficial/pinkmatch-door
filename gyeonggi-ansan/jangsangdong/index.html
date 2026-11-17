@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#D6336C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/static/landing.css?v=1794381213">
+<link rel="stylesheet" href="/static/landing.css?v=1794877030">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/static/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
@@ -37,15 +37,16 @@
 
   <div class="mcard" aria-label="핑크도어락">
     <div class="mt"><b id="heroBig" data-night="오전 6시부터<br>가장 먼저 연락"><span id="hbArea">장상동</span>,<br>30분 내 도착</b><span class="hb2"><span id="hbCat">도어락 고장, 수리</span> 전문</span>
-      <div class="bd"><span class="y">무손상 개문</span><span class="w">24시간 즉시 출동</span></div></div>
+      <div class="bd"><span class="y">현관 도어락 개문</span><span class="w">24시간 즉시 출동</span></div></div>
     <img src="/static/model_tech.webp" alt="" fetchpriority="high">
   </div>
 
   <div class="pstrip"><div class="pl"><small>출동 예약금</small><b>30,000원</b></div><div class="pr"><span>업체 사정으로 못 가면<br>전액 환불</span></div></div>
 
+  <p class="scope-note" role="note"><b>현관 도어락만 출동해요.</b> 자동차 키, 열쇠 복사, 자물쇠, 금고 문의는 받지 않아요.</p>
   <section class="hero">
     <div class="badges"><span class="b1">24시간 접수</span><span class="b2">출동 문의 누적 3,000건+</span></div>
-    <h1 class="v2"><span class="nw" data-night="문의 남겨주시면">지금 문의 시 30분 내 도착 가능.</span><br><span id="heroSub" data-night="원하는 시간에 연락드릴게요.">오늘 바로 열어드려요.</span></h1>
+    <h1 class="v2"><span class="nw" data-night="문의 남겨주시면">지금 문의 시 30분 내 도착 가능.</span><br><span id="heroSub" data-night="원하는 시간에 연락드릴게요.">현관 도어락, 오늘 바로 열어드려요.</span></h1>
     <p class="lead"><b>비싸지 않아요. 작업 전 투명한 비용 안내,</b><br><b class="nofix">고칠 수 있으면 교체를 권하지 않아요.</b></p>
   </section>
 
@@ -62,8 +63,7 @@
   <div id="callWrap">
   <a class="call2" id="callBtn" href="tel:07080155764" aria-label="무료 상담 전화하기 070-8015-5764"><span class="c2-av" aria-hidden="true"><i></i></span><span class="c2-t"><b>070-8015-5764</b><small>무료 상담 · 지금 바로 연결돼요</small></span><span class="c2-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span></a>
   <p class="hint center">24시간 전화 상담 · 주말·늦은 밤에도 출동해요</p>
-  <p class="center"><span class="pill good">✓ 도어락 전문 · 열쇠 문의는 받지 않아요</span></p>
-  </div>
+    </div>
   <div class="reel mid" aria-label="실제 작업 사진"><div class="reel-track" id="reelTrack"></div></div>
   
   <section class="sec" aria-labelledby="riskT"><h2 id="riskT">도어락 고장, 그냥 두면 이렇게 돼요</h2>
@@ -152,7 +152,7 @@
       <div hidden><input id="fAddr" readonly><div id="postLayer" hidden><button type="button" id="postClose"></button><div id="postWrap"></div></div><div id="addrPick"></div><input id="fAddr2"></div>
       
       <div>
-        <span class="hint" id="reqLabel">어떤 문제인지 골라주세요 <span class="opt">(열쇠 문의는 받지 않아요)</span></span>
+        <span class="hint" id="reqLabel">어떤 문제인지 골라주세요 <span class="opt">(자동차 키·열쇠 문의는 받지 않아요)</span></span>
         <div class="chips" id="reqChips" role="group" aria-labelledby="reqLabel"></div>
       </div>
       <label id="memoWrap" hidden>어떤 문제인지 적어주세요<textarea id="fMemo" rows="3" maxlength="200" placeholder="예: 베란다 배수구에서 물이 역류해요"></textarea></label>
@@ -218,7 +218,7 @@
 <div class="toast" id="toast" role="status"></div>
 <script>window.PM={"slug": "gyeonggi-ansan/jangsangdong", "label": "장상동", "sido": "경기", "gu": "안산시", "gu_short": "장상동", "category": "도어락", "api": "https://app.pinkmatch.kr", "preview": false, "closed": false, "verify": false, "hours": [0, 0], "photos": [{"src": "/static/photos/door01.jpg", "cap": "번호키 설치"}, {"src": "/static/photos/door02.jpg", "cap": "현관 도어락 교체"}, {"src": "/static/photos/door04.jpg", "cap": "현관문 번호키"}, {"src": "/static/photos/door05.jpg", "cap": "푸시풀 도어락 설치"}, {"src": "/static/photos/door06.jpg", "cap": "도어락 교체 작업"}, {"src": "/static/photos/door07.jpg", "cap": "지문 인식 도어락"}, {"src": "/static/photos/door08.jpg", "cap": "현관 번호키 교체"}, {"src": "/static/photos/door09.jpg", "cap": "푸시풀 도어락"}, {"src": "/static/photos/door10.jpg", "cap": "도어락 교체 완료"}, {"src": "/static/photos/door11.jpg", "cap": "현관 도어락 설치"}, {"src": "/static/photos/door12.jpg", "cap": "보조키 설치"}]};</script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
-<script src="/static/landing.js?v=1794381213" defer></script>
+<script src="/static/landing.js?v=1794877030" defer></script>
 <!-- 네이버 광고 전환추적 (wcs.trans) -->
 <script src="https://wcs.naver.net/wcslog.js"></script>
 <script>window.PM_NWA=["s_1088baea68b1"];

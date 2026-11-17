@@ -3,8 +3,8 @@
   const PM = window.PM;
   const $ = (id) => document.getElementById(id);
   const LEAK = !!PM.leak;  // 누수 페이지 (/{지역}/leak/)
-  const REQS = ["문이 안 열려요", "도어락 고장·수리", "설치·교체", "방문·욕실문", "기타 (직접 입력)"];
-  const S = { req: "문이 안 열려요", addr: null, token: "", sending: false };
+  const REQS = ["현관문이 안 열려요", "도어락 고장·수리", "설치·교체", "방문·욕실문", "기타 (직접 입력)"];
+  const S = { req: "현관문이 안 열려요", addr: null, token: "", sending: false };
 
   function toast(m) { const t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2600); }
   function err(m) { const e = $("formErr"); e.textContent = m; e.hidden = !m; }
@@ -96,8 +96,8 @@
     if (!text) return null;
     const key = /번호키/.test(text) && !/도어락/.test(text) ? "번호키" : "도어락";
     if (/방문|욕실문|욕실손잡이|화장실문/.test(text)) return [/교체|설치/.test(text) ? "방문 손잡이 설치, 교체" : "방문 잠김, 개문", "방문·욕실문"];
-    if (/개문|잠금해제|문열기/.test(text)) return [`${key} 개문, 수리`, "문이 안 열려요"];
-    if (/안열|잠김|잠겼|먹통|비밀번호|전원|안켜|방전|터치|경고음|작동안/.test(text)) return [`${key} 고장, 수리`, "문이 안 열려요"];
+    if (/개문|잠금해제|문열기/.test(text)) return [`${key} 개문, 수리`, "현관문이 안 열려요"];
+    if (/안열|잠김|잠겼|먹통|비밀번호|전원|안켜|방전|터치|경고음|작동안/.test(text)) return [`${key} 고장, 수리`, "현관문이 안 열려요"];
     if (/교체|설치/.test(text)) return [`${key} 설치, 교체`, "설치·교체"];
     if (/수리|고장|AS|긴급|출동|출장/.test(text)) return [`${key} 고장, 수리`, "도어락 고장·수리"];
     return null;
@@ -272,6 +272,7 @@
     const addr = S.addr || (PM.sido && PM.gu ? { sido: PM.sido, sigungu: PM.gu, dong: "", addr: area } : null);
     if (!addr) { err("주소를 검색해서 선택해주세요."); return; }
     if (S.req.startsWith("기타") && !$("fMemo").value.trim()) { err("어떤 문제인지 적어주세요."); return; }
+    if (/자동차|차\s?키|차문|스마트\s?키|폴딩\s?키|열쇠|자물쇠|금고|오토바이/.test($("fMemo").value)) { err("자동차 키, 열쇠, 자물쇠, 금고 문의는 받지 않아요. 현관 도어락 문제만 접수돼요."); return; }
     if (!$("fAgree").checked) { err("개인정보 수집·이용 및 제공에 동의해주세요."); return; }
     if (PM.preview) { err(""); toast("오픈 준비 중인 미리보기 화면이에요. 아직 실제 접수는 되지 않아요."); return; }
     if (PM.closed) { err(""); toast("온라인 접수는 곧 열려요. 조금만 기다려주세요."); return; }
